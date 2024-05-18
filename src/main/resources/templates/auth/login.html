@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" th:href="@{/bootstrap.css}" type="text/css">
+    </head>
+    <body>
+        <div class="container mx-auto">
+            <div class="row">
+                <div class="col-md-4 offset-md-4">
+                    <div class="card my-5 rounded-3 shadow-lg">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="card-title text-center fw-lighter">Login Form!</h4>
+                        </div>
+                        <div class="card-body">
+                            <!-- Error Message -->
+                            <div th:if="${param.error}">
+                                <div class="alert alert-danger">
+                                    Invalid email or password!
+                                </div>
+                            </div>
+
+                            <!-- Logout Message -->
+                            <div th:if="${param.logout}">
+                                <div class="alert alert-info">
+                                    You have been logged out!
+                                </div>
+                            </div>
+
+                            <!-- Login Form Start -->
+                            <form th:action="@{/login}" method="POST" class="p-2">
+
+                                <div class="mb-3">
+                                    <label for="username" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="username" name="username">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password">
+                                </div>
+
+                                <button type="submit" name="login-submit" id="login-submit" class="btn btn-dark float-end">Login</button>
+                            </form>
+                            <!-- Login Form End -->
+                            <div class="mt-lg-5 text-nowrap">
+                                <p class="text-dark text-center">
+                                    Don't have an account?
+                                    <a th:href="@{/register}" class="text-decoration-none text-success">Register!</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap JS -->
+        <script th:src="@{/bootstrap.bundle.js}"></script>
+    </body>
+</html>

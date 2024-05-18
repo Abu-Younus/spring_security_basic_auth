@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Books Create</title>
+        <link rel="stylesheet" th:href="@{/bootstrap.css}" type="text/css">
+    </head>
+    <body class="py-5">
+        <div class="container mx-auto">
+            <div class="row">
+                <div class="card shadow-lg rounded-3 p-4">
+                    <div class="card-header">
+                        <h4 class="card-title float-start">Create Book</h4>
+                        <a href="/" class="btn btn-outline-info btn-sm float-end">All Books</a>
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/create}" method="POST" enctype="multipart/form-data" th:object="${book}" class="col-md-6 offset-md-3 rounded shadow-lg p-4">
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="title" th:field="*{title}">
+                                <p th:if="${#fields.hasErrors('title')}" th:errorclass="text-danger" th:errors="${book.title}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="category" class="form-label">Category</label>
+                                <input type="text" class="form-control" id="category" th:field="*{category}">
+                                <p th:if="${#fields.hasErrors('category')}" th:errorclass="text-danger" th:errors="${book.category}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="author" class="form-label">Author</label>
+                                <input type="text" class="form-control" id="author" th:field="*{author}">
+                                <p th:if="${#fields.hasErrors('author')}" th:errorclass="text-danger" th:errors="${book.author}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="publisher" class="form-label">Publisher</label>
+                                <input type="text" class="form-control" id="publisher" th:field="*{publisher}">
+                                <p th:if="${#fields.hasErrors('publisher')}" th:errorclass="text-danger" th:errors="${book.publisher}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="isbn" class="form-label">ISBN</label>
+                                <input type="text" class="form-control" id="isbn" th:field="*{isbn}">
+                                <p th:if="${#fields.hasErrors('isbn')}" th:errorclass="text-danger" th:errors="${book.isbn}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="edition" class="form-label">Edition</label>
+                                <input type="text" class="form-control" id="edition" th:field="*{edition}">
+                                <p th:if="${#fields.hasErrors('edition')}" th:errorclass="text-danger" th:errors="${book.edition}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="numberOfPages" class="form-label">Number Of Pages</label>
+                                <input type="text" class="form-control" id="numberOfPages" th:field="*{numberOfPages}">
+                                <p th:if="${#fields.hasErrors('numberOfPages')}" th:errorclass="text-danger" th:errors="${book.numberOfPages}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="price" class="form-label">Price</label>
+                                <input type="text" class="form-control" id="price" th:field="*{price}">
+                                <p th:if="${#fields.hasErrors('price')}" th:errorclass="text-danger" th:errors="${book.price}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" id="description" th:field="*{description}"></textarea>
+                                <p th:if="${#fields.hasErrors('description')}" th:errorclass="text-danger" th:errors="${book.description}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="country" class="form-label">Country</label>
+                                <input type="text" class="form-control" id="country" th:field="*{country}">
+                                <p th:if="${#fields.hasErrors('country')}" th:errorclass="text-danger" th:errors="${book.country}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="language" class="form-label">Language</label>
+                                <input type="text" class="form-control" id="language" th:field="*{language}">
+                                <p th:if="${#fields.hasErrors('language')}" th:errorclass="text-danger" th:errors="${book.language}"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Image</label>
+                                <input type="file" class="form-control" id="image" th:field="*{image}">
+                                <p th:if="${#fields.hasErrors('image')}" th:errorclass="text-danger" th:errors="${book.image}"></p>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script th:src="@{/bootstrap.bundle.js}"></script>
+    </body>
+</html>
